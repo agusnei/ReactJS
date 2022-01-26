@@ -1,8 +1,12 @@
+import CardWidget from "./CardWidget";
+import ItemListContainer from './ItemListContainer.js';
+
 const NavBar = () => {
     return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar Desafío 3 - Ecommerce</a>
+                    <CardWidget />
+                <a className="navbar-brand" href="#">Tienda de bebidas</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -29,10 +33,11 @@ const NavBar = () => {
                     </li>
                 </ul>
                 <form className="d-flex">
-                    {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"> */}
+                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 </div>
+                <ItemListContainer />
             </div>
             </nav>
     );
