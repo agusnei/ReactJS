@@ -1,5 +1,4 @@
 import CardWidget from "./CardWidget";
-import ItemListContainer from './ItemListContainer.js';
 
 const NavBar = () => {
     return (
@@ -37,7 +36,6 @@ const NavBar = () => {
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 </div>
-                <ItemListContainer />
             </div>
             </nav>
     );
