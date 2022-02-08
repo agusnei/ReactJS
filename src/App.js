@@ -10,7 +10,7 @@ const App = () => {
 	return (
 			<div className='App'>
 				<NavBar/>
-				<div className='container'>
+				<div>
 					<CardListComponent/>
 				</div>
 				<div className='CounterSection'>

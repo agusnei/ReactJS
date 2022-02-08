@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
-import UserComponent from '../UserComponent/UserComponent';
+import CardList from './CardList.js'
+import Spinner from '../spinner/Spinner.js';
 
 const CardListComponent = () => {
-	const [users, setUsers] = useState([]);
+	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(users);
+
+	console.log(data);
 
 	useEffect(() => {
-		fetch('https://jsonplaceholder.typicode.com/users')
+		fetch('https://fakestoreapi.com/products')
 			.then((response) => response.json())
-			// .then((json) => console.log(json));
-			.then((json) => setUsers(json));
+			.then((json) => setData(json));
+			setTimeout(() => {
+				setIsLoading(false);
+			}, 2000);
 	}, []);
-
+	
 	return (
 		<div>
-			{users.map((user) => {
-				return (
-					<div key={user.id}>
-						<UserComponent data={user} />
-					</div>
-				);
-			})}
-		</div>
+			{isLoading ? <Spinner /> : <CardList data={data} />}
+		</div> 
 	);
 };
 
