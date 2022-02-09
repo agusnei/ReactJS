@@ -8,9 +8,8 @@ const Cards = ({data}) => {
 	};
 
 	return (
-		
 			<div >
-				<img src={data.image} className='card-img-top' alt={data.title} />
+				<img src={data.image} className='card-img-top' alt={data.title}/>
 				<div className="card-body">
 					<p className="card-title">{data.title}</p>
 					<p className="card-title">{data.category}</p>
@@ -20,7 +19,6 @@ const Cards = ({data}) => {
 					<button className="btn btn-primary" onClick={onClick}>Agregar al carrito</button>
 				</div>
 			</div>
-
 	);
 };
 
