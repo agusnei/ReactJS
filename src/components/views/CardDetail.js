@@ -8,38 +8,32 @@ import Cards from '../CardsComponent/Cards.js';
 
 
 const CardDetail = () => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
 	let useparams = useParams();
 
 	let id = useparams.id;
-    // console.log(id);
+    console.log(id);
 
 		
 	useEffect(() => {
 		axios(
-			`https://fakestoreapi.com/products/${id}`).then((res) => setData(res.data));
-		setTimeout(() => {
-			setIsLoading(false);
-			}, 2000);
-		}, [id]);
+            `https://fakestoreapi.com/products/${id}`).then((res) => {
+                setData(res.data)
+                console.log(res)});
+        setTimeout(() => {
+            setIsLoading(false);
+                }, 2000);
+            console.log(data);
+                }, [id]);
 	
 	return (
 		<div >
-			{isLoading ? (
-				<Spinner />
-			) : (
-				<div >
-					{data.map((data) => {
-						return (
-							<div key={data.id}>
-								<Cards data={data} />
-							</div>
-						);
-					})}
-				</div>
-			)}
+			{isLoading ? 	<Spinner />	 :
+			<div key={data.id}>
+				<Cards data={data} />
+			</div>}
 		</div>
 	);
 };

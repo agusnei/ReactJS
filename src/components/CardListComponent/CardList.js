@@ -11,13 +11,11 @@ const CardList = ({data}) => {
             <div  className='row row-cols-1 row-cols-md-4 g-4'>
                 {data.map((data) => {
                     return (
-                        <div className='col'>
-                            <div className='card' key={data.id} >
+                            <div className='card col' key={data.id} >
                                 <Link to={`/detail/${data.id}`}>
                                     <Cards data={data} />
                                 </Link>
                             </div>
-                        </div>
                     );
                 })}
             </div>

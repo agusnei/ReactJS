@@ -27,10 +27,10 @@ const App = () => {
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/products' element={<CardListComponent/>} />
-						<Route path='/detail/:id' element={<CardDetail/>} />
 						<Route path='/about' element={<About />} />
 						<Route path='/contact' element={<Contact />} />
 						<Route path='*' element={<Error />} />
+						<Route path='/detail/:id' element={<CardDetail/>} />
 					</Routes>
 				<div className='CounterSection'>
 					<ItemListContainer />
