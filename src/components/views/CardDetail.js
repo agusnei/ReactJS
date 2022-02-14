@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 //Components
 import Spinner from '../spinner/Spinner.js';
 import Cards from '../CardsComponent/Cards.js';
-
+import ItemListContainer from '../CountComponent/ItemListContainer.js';
 
 const CardDetail = () => {
 	const [data, setData] = useState({});
@@ -30,10 +30,15 @@ const CardDetail = () => {
 	
 	return (
 		<div >
-			{isLoading ? 	<Spinner />	 :
-			<div key={data.id}>
-				<Cards data={data} />
-			</div>}
+			{
+				isLoading ? 	<Spinner />	 :
+				<div key={data.id}>
+					<Cards data={data} />
+					<div className='CounterSection'>
+						<ItemListContainer data={data} />
+					</div>
+				</div>
+			}
 		</div>
 	);
 };

@@ -9,7 +9,6 @@ import "./App.css";
 //Components
 import NavBar from "./components/NavBar.js";
 import CardListComponent from './components/CardListComponent/CardListComponent.js';
-import ItemListContainer from './components/ItemListContainer';
 
 // VIEWS
 import Home from './components/views/Home.js';
@@ -17,6 +16,7 @@ import About from './components/views/About.js';
 import Contact from './components/views/Contact.js';
 import Error from './components/views/Error.js';
 import CardDetail from './components/views/CardDetail';
+import Cart from './components/views/Cart';
 
 const App = () => {
 
@@ -31,10 +31,8 @@ const App = () => {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='*' element={<Error />} />
 						<Route path='/detail/:id' element={<CardDetail/>} />
+						<Route path='/cart' element={<Cart/>} />
 					</Routes>
-				<div className='CounterSection'>
-					<ItemListContainer />
-				</div>
 			</div>
 		</BR>
 		);
