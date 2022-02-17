@@ -1,14 +1,16 @@
 import React from 'react';
 
 //COMPONENTS
-import img from '../Logo/logo.png';
+import ShoppingCart from "../Cart/ShoppingCart";
 
-const Cart = (data) => {
-    console.log(data)
+const Cart = () => {
+    console.log()
     return(
-        <div>
-            <img src={img} alt='logo-carro' width="50px"/>;
-        </div>
+        
+			<div className='App'>
+			<ShoppingCart />
+			</div>
+		
     )
 }
 

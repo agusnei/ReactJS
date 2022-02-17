@@ -38,7 +38,7 @@ const ItemCount = ({data}) => {
 							
 							console.log(addQuantity);
 							console.log(addItem);
-
+							
 						};
 
 	return (
