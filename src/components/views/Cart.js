@@ -4,7 +4,7 @@ import React from 'react';
 import ShoppingCart from "../Cart/ShoppingCart";
 
 const Cart = () => {
-    console.log()
+
     return(
         
 			<div className='App'>

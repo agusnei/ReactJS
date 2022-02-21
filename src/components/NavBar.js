@@ -1,12 +1,9 @@
 import {Link} from "react-router-dom";
 
-import CardWidget from "./CardWidget";
-
 const NavBar = () => {
     return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <Link className="nav-link" to="/"><CardWidget /></Link>
                 {/* <a className="navbar-brand" href="#">Tienda de ropa</a> */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -37,10 +34,11 @@ const NavBar = () => {
                             <Link className="nav-link" to="/contact">Contact</Link>
                     </li>
                 </ul>
-                <form className="d-flex">
+                {/* <form className="d-flex">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                </form> */}
+                    <Link className="nav-link" to="/Cart">Cart</Link>
                 </div>
             </div>
             </nav>

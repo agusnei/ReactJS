@@ -1,9 +1,9 @@
 import { TYPES } from "./shoppingAction";
 
-import {data} from "../CardListComponent/CardListComponent";
+import data from "../CardListComponent/CardListComponent";
 
 export const shoppingInitialState = {
-  products: [
+  products: [ 
     { id: 1, name: "Producto 1", price: 100 },
     { id: 2, name: "Producto 2", price: 200 },
     { id: 3, name: "Producto 3", price: 300 },
@@ -16,6 +16,7 @@ export const shoppingInitialState = {
 
 export function shoppingReducer(state, action) {
   switch (action.type) {
+    
     case TYPES.ADD_TO_CART: {
       let newItem = state.products.find(
         (product) => product.id === action.payload
@@ -37,7 +38,10 @@ export function shoppingReducer(state, action) {
             ...state,
             cart: [...state.cart, { ...newItem, quantity: 1 }],
           };
+          
     }
+
+
     case TYPES.REMOVE_ONE_FROM_CART: {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);
 
@@ -55,6 +59,8 @@ export function shoppingReducer(state, action) {
             cart: state.cart.filter((item) => item.id !== action.payload),
           };
     }
+
+
     case TYPES.REMOVE_ALL_FROM_CART: {
       return {
         ...state,

@@ -17,6 +17,7 @@ import Contact from './components/views/Contact.js';
 import Error from './components/views/Error.js';
 import CardDetail from './components/views/CardDetail';
 import Cart from './components/views/Cart';
+import Buy from './components/views/Buy';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
 						<Route path='*' element={<Error />} />
 						<Route path='/detail/:id' element={<CardDetail/>} />
 						<Route path='/cart' element={<Cart/>} />
+						<Route path='/buy' element={<Buy/>} />
 					</Routes>
 
 			</div>
