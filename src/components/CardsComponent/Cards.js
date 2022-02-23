@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Card from './Card.css';
 
 const Cards = ({data}) => {
 	
@@ -11,7 +10,7 @@ const Cards = ({data}) => {
 					<p className="card-title">{data.category}</p>
 					<p className="card-text">{data.description}</p>
 					<p className="card-text">{data.price}</p>
-					<p >Stock {data.rating.count}</p>
+					<p >Stock {data.stock}</p>
 					{/* <button className="btn btn-primary" onClick={onClick}>Agregar al carrito</button> */}
 				</div>
 			</div>

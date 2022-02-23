@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 
 // REACT ROUTER DOM
 import { BrowserRouter as BR, Routes, Route } from 'react-router-dom';
@@ -10,6 +10,8 @@ import "./App.css";
 import NavBar from "./components/NavBar.js";
 import CardListComponent from './components/CardListComponent/CardListComponent.js';
 
+
+
 // VIEWS
 import Home from './components/views/Home.js';
 import About from './components/views/About.js';
@@ -18,6 +20,7 @@ import Error from './components/views/Error.js';
 import CardDetail from './components/views/CardDetail';
 import Cart from './components/views/Cart';
 import Buy from './components/views/Buy';
+import Category from './components/views/Category/Category';
 
 const App = () => {
 
@@ -32,6 +35,7 @@ const App = () => {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='*' element={<Error />} />
 						<Route path='/detail/:id' element={<CardDetail/>} />
+						<Route path='/category/:category' element={<Category/>} />
 						<Route path='/cart' element={<Cart/>} />
 						<Route path='/buy' element={<Buy/>} />
 					</Routes>

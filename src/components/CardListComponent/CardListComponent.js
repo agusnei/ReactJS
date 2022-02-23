@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+//Firebase firestore
+import {db} from '../../Firebase/FirebaseConfig'
+import { collection, query, getDocs } from "firebase/firestore";
+
 //Components
 import CardList from './CardList.js'
 import Spinner from '../spinner/Spinner.js';
@@ -7,24 +11,35 @@ import Spinner from '../spinner/Spinner.js';
 
 
 const CardListComponent = () => {
-	const [data, setData] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-
-	console.log(data);
+	
+	const [productsData, setProductsData] = useState([]);
+	
+	useEffect(() =>{
+		const getProducts = async () => {
+			const q = query(collection(db, 'ecommerce'));
+			const docs = []
+			const querySnapshot = await getDocs(q);
+			
+			querySnapshot.forEach((doc) => {
+			// doc.data() is never undefined for query doc snapshots
+			// console.log(doc.id, " => ", doc.data());
+			docs.push({...doc.data(), id: doc.id});
+			});
+			setProductsData(docs);
+		};
+		getProducts();
 		
-	useEffect(() => {
-		axios(
-			`https://fakestoreapi.com/products`).then((res) => setData(res.data));
 		setTimeout(() => {
 			setIsLoading(false);
 			}, 2000);
-		}, []);
+	},[]);		
 	
 	return (
 		<div>
 			{isLoading ? <Spinner /> : 
 				<div>
-					<CardList data={data} />
+					<CardList productsData={productsData} />
 				</div> }
 		</div> 
 	);
