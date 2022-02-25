@@ -91,7 +91,7 @@ const ShoppingCart = () => {
                     ))}
                   </div>
                   <button onClick={clearCart}>Limpiar Carrito</button>            
-                    <Link className="nav-link" to="/buy">Terminar mi compra</Link>
+                  <Link className="nav-link" to="/buy">Terminar mi compra</Link>
                 </div>
             </div> 
         }

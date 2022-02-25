@@ -10,12 +10,7 @@ import "./App.css";
 import NavBar from "./components/NavBar.js";
 import CardListComponent from './components/CardListComponent/CardListComponent.js';
 
-
-
 // VIEWS
-import Home from './components/views/Home.js';
-import About from './components/views/About.js';
-import Contact from './components/views/Contact.js';
 import Error from './components/views/Error.js';
 import CardDetail from './components/views/CardDetail';
 import Cart from './components/views/Cart';
@@ -29,17 +24,13 @@ const App = () => {
 			<div className='App'>
 				<NavBar/>
 					<Routes>
-						<Route path='/' element={<Home />} />
-						<Route path='/products' element={<CardListComponent/>} />
-						<Route path='/about' element={<About />} />
-						<Route path='/contact' element={<Contact />} />
+						<Route path='/' element={<CardListComponent/>} />
 						<Route path='*' element={<Error />} />
 						<Route path='/detail/:id' element={<CardDetail/>} />
 						<Route path='/category/:category' element={<Category/>} />
 						<Route path='/cart' element={<Cart/>} />
 						<Route path='/buy' element={<Buy/>} />
 					</Routes>
-
 			</div>
 		</BR>
 		);
