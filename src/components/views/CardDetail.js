@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 //Link roter dom
 import {Link} from "react-router-dom";
+
+import { CartState } from "../../Context";
 //Firebase firestore
 import {db} from '../../Firebase/FirebaseConfig'
 import { collection, query, where, getDocs, documentId } from "firebase/firestore";
@@ -10,9 +12,9 @@ import { collection, query, where, getDocs, documentId } from "firebase/firestor
 //Components
 import Spinner from '../spinner/Spinner.js';
 import Cards from '../CardsComponent/Cards.js';
-import ItemListContainer from '../CountComponent/ItemListContainer.js';
 
 const CardDetail = () => {
+	const { cart, setCart } = CartState();
 	const [isLoading, setIsLoading] = useState(true);
 	const [productData, setProductData] = useState([]);
 
@@ -56,10 +58,6 @@ const CardDetail = () => {
 									</div>
 							);
 						})}
-					</div>
-					
-					<div className='CounterSection'>
-						<ItemListContainer productData={productData} />
 					</div>
 				</div>
 			}

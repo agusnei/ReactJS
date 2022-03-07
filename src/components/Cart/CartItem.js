@@ -1,9 +1,9 @@
 const CartItem = ({ data, delFromCart,addToCart}) => {
-  let { id, name, price, quantity } = data;
+  let { id, title, price, quantity } = data;
 
   return (
     <div className="card-body">
-      <h4>{name}</h4>
+      <h4>{title}</h4>
       <h5>Precio:$ {price}</h5>
       <h5>Cantidad: {quantity}</h5>
       <h5>Total: $ {price * quantity}</h5>

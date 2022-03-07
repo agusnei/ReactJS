@@ -1,6 +1,9 @@
 import * as React from 'react';
 
+
 const Cards = ({data}) => {
+	
+
 	
 	return (
 			<div >
@@ -11,7 +14,6 @@ const Cards = ({data}) => {
 					<p className="card-text">{data.description}</p>
 					<p className="card-text">{data.price}</p>
 					<p >Stock {data.stock}</p>
-					{/* <button className="btn btn-primary" onClick={onClick}>Agregar al carrito</button> */}
 				</div>
 			</div>
 	);

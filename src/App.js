@@ -9,11 +9,11 @@ import "./App.css";
 //Components
 import NavBar from "./components/NavBar.js";
 import CardListComponent from './components/CardListComponent/CardListComponent.js';
+import Cart from './components/Products/Cart';
 
 // VIEWS
 import Error from './components/views/Error.js';
 import CardDetail from './components/views/CardDetail';
-import Cart from './components/views/Cart';
 import Buy from './components/views/Buy';
 import Category from './components/views/Category/Category';
 

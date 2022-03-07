@@ -1,8 +1,7 @@
 import {Link} from "react-router-dom";
-import { CartState } from "../Context";
 
 const NavBar = () => {
-    const { cart } = CartState();
+    
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -20,7 +19,6 @@ const NavBar = () => {
                         </ul>
                         </li>
                     </ul>
-                    <Link className="nav-item" to="/Cart">Cart ({cart.length})</Link>
             </div>
         </nav>
     );
