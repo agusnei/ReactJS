@@ -55,6 +55,7 @@ const Buy = () => {
 					value={values.name}
 					name='name'
 					onChange={handleOnChange}
+					className='bgtx'
 				/>
 				<TextField
 					placeholder='Email'
@@ -63,6 +64,7 @@ const Buy = () => {
 					value={values.email}
 					name='email'
 					onChange={handleOnChange}
+					className='bgtx'
 				/>
 				<TextField
 					placeholder='Phone'
@@ -71,6 +73,7 @@ const Buy = () => {
 					value={values.phone}
 					name='phone'
 					onChange={handleOnChange}
+					className='bgtx'
 				/>
 					<button className='btnASendAction'>Confirm order</button>
 			</form>

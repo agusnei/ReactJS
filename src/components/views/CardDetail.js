@@ -68,18 +68,18 @@ const CardDetail = () => {
           {products.items !== undefined
             ? products.items.map((item) => {
               return(
-              <div className="shadow flex flex-col  items-center p-3" key={item.id}> 
+              <div className="shadow flex flex-col bg-light m-10 items-center p-3 " key={item.id}> 
                       <img src={item.smallImage} className="w-64 h-48" alt="productItem"/>
                       <h2>Product</h2>
                       <h3 className="font-medium capitalize">{item.productName}</h3>
                       <h2>Description</h2>
-                    <p >{item.productDescription}</p>
+                    <p className="bg-light">{item.productDescription}</p>
+                    <Link to='/' className="btn btn-green m-2">Back to home</Link>
                     </div>
                         )}
                         )
                         :  <div  className="spinner-container"><SyncLoader color="#10b981"/></div>}
         </div>
-                        <Link to='/' className="btn btn-green m-1">Back to home</Link>
       </div>
     );
 };

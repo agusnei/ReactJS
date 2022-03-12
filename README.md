@@ -1,5 +1,9 @@
 # A simple ReactJS Shopping app
+proyecto: simple ecommerce que permita elegir un determinado producto y su cantidad, aumentando y decreciendo la cantidad elegida del mismo por medio de botones en la misma cart.
+cada producto elegido y su cantidad entran al context utilizado por el cartList, donde se podra ingresar mediante el icono mostrado en el navbar superior que indica cantidad de prendas agregadas.
+desde el cartlist puedo remover o eliminar el producto agregado, y una vez quiera realizar la compra tengo boton para hacerlo.. me dirije a buy donde completo un formulario para confirmar la compra, obteniendo un id de transaccion.
 
+se utiliza bootstrap tailwind y diferentes iconos mediante npm install, aprendiendo a manejar cada uno de ellos
 
 
 ## Technology included:

@@ -95,7 +95,8 @@ const ProductList = () => {
 
 
     return (
-      <div>
+      <div> 
+            <h1 className="m-3 ">Products</h1>
             <div className="product-filter">
                 <SortBy/>
             </div>

@@ -14,18 +14,18 @@ const CartList = ({ closeCart, show }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalCartItems, setTotalCartItems] = useState(0);
   
-  const calculateTotal = () => {
-    let totalAmount = 0;
-    let totalCart = 0;
-    cartItem.map((item) => {
-      totalAmount = totalAmount + item.count * parseFloat(item.productPrice);
-      totalCart = totalCart + item.count;
-    });
-    setTotalPrice(totalAmount);
-    setTotalCartItems(totalCart);
-  };
 
   useEffect(() => {
+    const calculateTotal = () => {
+      let totalAmount = 0;
+      let totalCart = 0;
+      cartItem.map((item) => {
+        totalAmount = totalAmount + item.count * parseFloat(item.productPrice);
+        totalCart = totalCart + item.count;
+      });
+      setTotalPrice(totalAmount);
+      setTotalCartItems(totalCart);
+    };
     calculateTotal();
   }, [cartItem]);
 

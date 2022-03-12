@@ -1,24 +1,31 @@
-.FormContainer , h1{
+.FormContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	margin: 20px;
-	font-weight: bold;
 }
 
 .Textfield {
 	width: 400px;
 }
 
+.bgtx{
+	background-color: rgba(255, 230, 193, 0.733);
+}
+
+h1{
+	font-weight: bold;
+}
+
 .btnASendAction {
-	background: rgb(14, 16, 108);
+	background: rgba(143, 117, 79, 0.733);
 	background: radial-gradient(
 		circle,
-		rgb(21, 22, 121) 77%,
-		rgb(34, 66, 172) 100%
+		rgba(143, 117, 79, 0.733) ,
+		rgba(143, 117, 79, 0.733)
 	);
-	color: white;
+	color: rgb(255, 255, 255);
 	height: 54px;
 	width: 400px;
 	border-radius: 8px;
@@ -30,7 +37,7 @@
 }
 
 .btnASendAction:hover {
-	color: rgb(255, 255, 255);
-	background: rgb(0, 22, 87);
-	background: radial-gradient(circle, rgb(10, 0, 65) 77%, rgb(12, 27, 112) 100%);
+	color: rgb(7, 6, 6);
+	background: rgba(143, 117, 79, 0.733);
+	background: radial-gradient(circle, rgba(255, 230, 193, 0.733) , rgba(139, 121, 91, 0.89) );
 }
