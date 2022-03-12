@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
-import { CartState } from "../Context";
+import './NavBar.css'
 
 const NavBar = () => {
-    const { cart } = CartState();
+    
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light navBack">
             <div className="container-fluid">
                     <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{scrollHeight: "100px"}}>
                         <li className="nav-item">
@@ -20,7 +20,6 @@ const NavBar = () => {
                         </ul>
                         </li>
                     </ul>
-                    <Link className="nav-item" to="/Cart">Cart ({cart.length})</Link>
             </div>
         </nav>
     );

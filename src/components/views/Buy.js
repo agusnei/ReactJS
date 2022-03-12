@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 //Firebase firestore
-import {db} from '../../Firebase/FirebaseConfig'
+import {db} from '../../Services/Firebase/FirebaseConfig'
 import { collection, addDoc } from 'firebase/firestore';
-
+import './Buy.css'
 import MessageSuccess from '../MessageSuccess/MessageSuccess';
-import './Buy.css';
 import TextField from '@mui/material/TextField';
 
 const initialState = {
@@ -21,8 +20,9 @@ const styles = {
 };
 
 const Buy = () => {
+
 	const [values, setValues] = useState(initialState);
-	// Este estado está destinado a guardar el id de la compra
+	
 	const [purchaseID, setPurchaseID] = useState('');
 
 	const handleOnChange = (e) => {
@@ -33,17 +33,21 @@ const Buy = () => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		console.log(values);
-		const docRef = await addDoc(collection(db, 'purchases'), {
-			values,
-		});
-		console.log('Document written with ID: ', docRef.id);
-		setPurchaseID(docRef.id);
-		setValues(initialState);
+		if(values.name.length > 5 || values.phone.length > 8 || values.email.length > 8){
+			const docRef = await addDoc(collection(db, 'purchases'), {
+				values,
+			});
+			console.log('Document written with ID: ', docRef.id);
+			setPurchaseID(docRef.id);
+			setValues(initialState);
+		} else {
+			alert('Complete the form')
+		}
 	};
 
 	return (
-		<div style={styles.containerShop}>
-			<h1>Shop</h1>
+		<div style={styles.containerShop} >
+			<h1>Complete the form</h1>
 			<form className='FormContainer' onSubmit={onSubmit}>
 				<TextField
 					placeholder='Name'
@@ -68,7 +72,7 @@ const Buy = () => {
 					name='phone'
 					onChange={handleOnChange}
 				/>
-				<button className='btnASendAction'>Send</button>
+					<button className='btnASendAction'>Confirm order</button>
 			</form>
 			{purchaseID && <MessageSuccess purchaseID={purchaseID} />}
 		</div>

@@ -13,9 +13,9 @@ const Product = ({ product, addToCart, removeFromCart, incrementItem, decrementI
 
     
   return (
-    <div className="shadow flex flex-col items-center p-3">
-      <img src={productItem.smallImage} className="w-64 h-48" />
-      <p className="font-medium capitalize">{productItem.productName}</p>
+    <div className="shadow flex flex-col items-center p-3 bg-light">
+      <img src={productItem.smallImage} className="w-64 h-48" alt="productItem"/>
+      <h2 className="font-medium capitalize">{productItem.productName}</h2>
       <p>${productItem.productPrice}</p>
       {productItem.isAddedtoCart ? (
         <div className="flex grid-cols-2 gap-2 grid w-4/5">
@@ -29,16 +29,21 @@ const Product = ({ product, addToCart, removeFromCart, incrementItem, decrementI
           </button>
         </div>
       ) : (
-        <button
-          onClick={() => addToCart(productItem)}
-          className="btn btn-green"
-        >
-          Add to Cart
-        </button>
+        <div>
+          <button
+            onClick={() => addToCart(productItem)}
+            className="btn btn-green"
+          >
+          <FaPlusSquare  className="w-5 h-5"/>
+          </button>
+        </div>
+        
       )}
-      <Link to={`/detail/${productItem.id}`}>
-                            Detail
-                          </Link>
+      <div className="btn btn-red m-1">
+      <Link to={`/detail/${productItem.id}`} >
+          Detail
+       </Link>
+      </div>
     </div>
   );
 };

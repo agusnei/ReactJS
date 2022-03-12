@@ -69,7 +69,7 @@ const CartList = ({ closeCart, show }) => {
         )}
       </div>
       <div className="checkout-container">
-        <div className="flex place-content-between mb-5">
+        <div className="flex place-content-between ">
           <h1>Total</h1>{" "}
           <p className="text-green-700 font-medium items-end text-xl">
             $ {totalPrice}
@@ -77,7 +77,7 @@ const CartList = ({ closeCart, show }) => {
         </div>
         {cartItem.length > 0 ? (
         <Link to="/buy">
-          <button className="checkout-btn btn-green">Checkout</button>
+          <button className="checkout-btn btn-green">Buy</button>
         </Link>) : <div></div> }
       </div>
     </div>

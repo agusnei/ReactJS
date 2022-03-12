@@ -1,30 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import React, {useEffect, useContext } from "react";
 //Link roter dom
 import {Link} from "react-router-dom";
+import { useParams } from 'react-router';
 
-import { CartState } from "../../Context";
+import './Detail.css'
+
+import { CartContext } from "../../Services/Cart/CartContext";
+import {
+  ADD_CART_ITEM,
+  REMOVE_CART_ITEM,
+  UPDATE_CART_ITEM_COUNT,
+} from "../../Services/Cart/action-types";
+import { ProductContext } from "../../Services/Product/ProductContext";
+
 //Firebase firestore
-import {db} from '../../Firebase/FirebaseConfig'
-import { collection, query, where, getDocs, documentId } from "firebase/firestore";
+import {db} from '../../Services/Firebase/FirebaseConfig'
+import {  collection, query, where, getDocs, documentId  } from "firebase/firestore";
 
+import { FETCH_PRODUCTS } from "../../Services/Product/action-types";
+import SyncLoader from "react-spinners/SyncLoader";
+import "../Products/ProductList.css"
 
-//Components
-import Spinner from '../spinner/Spinner.js';
-import Cards from '../CardsComponent/Cards.js';
 
 const CardDetail = () => {
-	const { cart, setCart } = CartState();
-	const [isLoading, setIsLoading] = useState(true);
-	const [productData, setProductData] = useState([]);
+  
+  const { cartItem, dispatch } = useContext(CartContext);
+  
+  const {products, productDispatch} = useContext(ProductContext);
 
-	let useparams = useParams();
+  let useparams = useParams();
 
 	let id = useparams.id;
-    console.log(id);
 
 	useEffect(() =>{
-			const getProduct = async () => {
+		const fetchProducts = async () => {
 			const q = query(collection(db, 'ecommerce'),where (documentId(),"==", id));
 			const docs = []
 			const querySnapshot = await getDocs(q);
@@ -34,35 +43,45 @@ const CardDetail = () => {
 			// console.log(doc.id, " => ", doc.data());
 			docs.push({...doc.data(), id: doc.id});
 			});
-			setProductData(docs);
-		};
-			getProduct();
-			
-			setTimeout(() => {
-				setIsLoading(false);
-				}, 2000);
-	},[id]);	
+			productDispatch(docs);
 
-	return (
-		<div >
-			{
-				isLoading ? 	<Spinner />	 :
-				<div key={productData.id}>
-					<div  className='row row-cols-1 row-cols-md-4 g-4'>
-						{productData.map((data) => {
-							return (
-									<div className='card col' key={data.id} >
-										<Link to={`/detail/${data.id}`}>
-											<Cards data={data} />
-										</Link>
-									</div>
-							);
-						})}
-					</div>
-				</div>
-			}
-		</div>
-	);
+      const allProduct = docs.map((docs) => ({
+        smallImage: docs.image,
+        productName: docs.title,
+        productPrice: docs.price,
+        count: 0,
+        id: docs.id,
+        productCategory: docs.category,
+        productDescription: docs.description,
+      }));
+      productDispatch({
+        type: FETCH_PRODUCTS,
+        payload: allProduct,
+      });
+    };
+		fetchProducts();
+	},[id]);
+
+    return (
+      <div>
+        <div >
+          {products.items !== undefined
+            ? products.items.map((item) => {
+              return(
+              <div className="shadow flex flex-col  items-center p-3" key={item.id}> 
+                      <img src={item.smallImage} className="w-64 h-48" alt="productItem"/>
+                      <h2>Product</h2>
+                      <h3 className="font-medium capitalize">{item.productName}</h3>
+                      <h2>Description</h2>
+                    <p >{item.productDescription}</p>
+                    </div>
+                        )}
+                        )
+                        :  <div  className="spinner-container"><SyncLoader color="#10b981"/></div>}
+        </div>
+                        <Link to='/' className="btn btn-green m-1">Back to home</Link>
+      </div>
+    );
 };
 
 export default CardDetail;

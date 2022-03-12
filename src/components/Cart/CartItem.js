@@ -1,17 +1,23 @@
-const CartItem = ({ data, delFromCart,addToCart}) => {
-  let { id, title, price, quantity } = data;
+import React from 'react'
+import "./CartItem.css";
+import { MdClose } from "react-icons/md";
 
-  return (
-    <div className="card-body">
-      <h4>{title}</h4>
-      <h5>Precio:$ {price}</h5>
-      <h5>Cantidad: {quantity}</h5>
-      <h5>Total: $ {price * quantity}</h5>
-      <button onClick= {() => delFromCart(id)}>-1</button>
-      <button onClick={() => delFromCart(id, true)}>X</button>
-      <button className="btnCar" onClick={() => addToCart(id)}>+1</button>
-    </div>
-  );
-};
+const CartItem = ({cartObj, removeFromCart}) => {
+    return (
+        <div className="cart-item">
+            <img src={cartObj.smallImage} className="w-36 h-30 ml-0" alt='cartObj'/>
+            <div>
+                <p className="font-medium capitalize">{cartObj.productName}</p>
+                <p>Quantity: {cartObj.count}</p>
+            </div>
+            <p className="text-green-700 font-medium">${cartObj.productPrice}</p>
+            <div className="absolute top-2 right-2">
+                <button onClick={()=> removeFromCart(cartObj)} className="focus:outline-none">
+                    <MdClose/>
+                </button>
+            </div>   
+        </div>
+    )
+}
 
-export default CartItem;
+export default CartItem
